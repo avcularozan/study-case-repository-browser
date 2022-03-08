@@ -1,8 +1,18 @@
 import { Box, Image, Stack, Text } from '@chakra-ui/react'
+import './index.css'
 
 const UserCard = () => {
   return (
-    <Box w="200px" rounded="20px" overflow="hidden" mt={10} ml={10} border='1px' borderColor='#EDF2F7'>
+    <Box
+      w="200px"
+      rounded="20px"
+      overflow="hidden"
+      mt={10}
+      ml={10}
+      border="1px"
+      borderColor="#EDF2F7"
+      className="user-card"
+    >
       <Image
         src="https://avatars.githubusercontent.com/u/57936?v=4"
         alt="Card Image"

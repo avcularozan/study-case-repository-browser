@@ -1,5 +1,6 @@
 import './App.css'
 import Header from './components/Header'
+import RepoArea from './components/RepoArea'
 import UserCard from './components/UserCard'
 
 const App = () => {
@@ -8,6 +9,7 @@ const App = () => {
       <Header />
       <div className="info">
         <UserCard />
+        <RepoArea />
       </div>
     </div>
   )
