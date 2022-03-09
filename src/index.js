@@ -1,10 +1,11 @@
+import { ChakraProvider } from '@chakra-ui/react'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
 import App from './App'
+import './index.css'
 import reportWebVitals from './reportWebVitals'
 import './styles/normalize.css'
-import { ChakraProvider } from '@chakra-ui/react'
+import './styles/typography.css'
 
 ReactDOM.render(
   <React.StrictMode>

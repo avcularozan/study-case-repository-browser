@@ -5,3 +5,7 @@
   font-weight: 600;
   white-space: nowrap;
 }
+
+.header .icon {
+  cursor: pointer;
+}

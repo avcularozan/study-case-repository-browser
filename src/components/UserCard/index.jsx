@@ -28,7 +28,7 @@ const UserCard = () => {
           <Text
             fontWeight="light"
             style={{ cursor: 'pointer' }}
-            onClick={() => navigate('star')}
+            onClick={() => navigate('stars')}
           >
             1 starred repository
           </Text>

@@ -1,0 +1,24 @@
+.star-header {
+  background-color: #f6f8fa !important;
+  border-bottom: 1px solid #d0d7de !important;
+}
+
+.star-header-container {
+  max-width: 1012px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
+
+.started-respositories {
+  padding: 20px 10em;
+}
+
+.started-respositories > h3 {
+  margin-top: 8px !important;
+  font-size: 14px !important;
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid #d0d7de !important;
+  border-top: 1px solid #d0d7de !important;
+}

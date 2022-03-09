@@ -1,0 +1,34 @@
+.text-center {
+  text-align: center !important;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-weight: 600 !important;
+}
+
+.f0-light {
+  font-size: 32px !important;
+  font-weight: 300 !important;
+}
+
+.f4 {
+  font-size: 16px !important;
+}
+
+.mx-auto {
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+.color-fg-muted {
+  color: #57606a !important;
+}
+
+.text-uppercase {
+  text-transform: uppercase !important;
+}

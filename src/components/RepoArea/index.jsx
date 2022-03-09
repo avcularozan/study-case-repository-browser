@@ -5,7 +5,7 @@ const RepoArea = () => {
   return (
     <div className="repo-area">
       <div className="search">
-        <Input />
+        <Input placeholder="Search repository..." />
       </div>
       <div className="search-result">
         <div className="available-result">
