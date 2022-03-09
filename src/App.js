@@ -1,17 +1,19 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './App.css'
-import Header from './components/Header'
-import RepoArea from './components/RepoArea'
-import UserCard from './components/UserCard'
+import Layout from './layouts'
+import Home from './pages/Home'
+import Star from './pages/Star'
 
 const App = () => {
   return (
-    <div className="App">
-      <Header />
-      <div className="info">
-        <UserCard />
-        <RepoArea />
-      </div>
-    </div>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/star" element={<Star />} />
+        </Routes>
+      </Layout>
+    </Router>
   )
 }
 

@@ -1,7 +1,10 @@
 import { Box, Image, Stack, Text } from '@chakra-ui/react'
 import './index.css'
+import { useNavigate } from 'react-router-dom'
 
 const UserCard = () => {
+  const navigate = useNavigate()
+
   return (
     <Box
       w="200px"
@@ -22,7 +25,13 @@ const UserCard = () => {
           <Text as="h1" fontWeight="normal" my={2}>
             Example Name
           </Text>
-          <Text fontWeight="light">1 starred repository</Text>
+          <Text
+            fontWeight="light"
+            style={{ cursor: 'pointer' }}
+            onClick={() => navigate('star')}
+          >
+            1 starred repository
+          </Text>
         </Stack>
       </Box>
     </Box>
