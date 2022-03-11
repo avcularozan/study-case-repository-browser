@@ -1,62 +1,63 @@
 .repo-list-item {
-    display: flex;
-    position: relative;
-    padding-top: 32px;
-    padding-bottom: 32px;
-    list-style: none;
-    border-bottom: 1px solid hsla(210, 18%, 87%, 1);
-  }
-  
-  .like {
-    margin-right: 8px;
-    cursor: pointer;
-  }
-  
-  .full-name {
-    font-weight: 400 !important;
-    font-size: 16px !important;
-  }
-  
-  .full-name a {
-    color: #0969da;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    color: -webkit-link;
-    cursor: pointer;
-  }
-  
-  .tags {
-    display: flex;
-  }
-  
-  .tag-item {
-    margin: 0 0.125em 0.333em 0;
-    display: inline-block;
-    padding: 0 7px;
-    font-weight: 500;
-    white-space: nowrap;
-    border-radius: 2em;
-    line-height: 22px;
-    color: #0969da;
-    background-color: #ddf4ff;
-    border: 1px solid rgba(0, 0, 0, 0);
-  }
-  
-  .sub-info {
-    display: flex;
-  }
-  
-  .stargazers_count {
-    margin-right: 16px !important;
-  }
-  
-  .stargazers_count a {
-    color: #57606a !important;
-  }
-  
-  .sub-info-item {
-    margin-right: 16px !important;
-    color: #57606a !important;
-  }
+  display: flex;
+  position: relative;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  list-style: none;
+  border-bottom: 1px solid hsla(210, 18%, 87%, 1);
+}
+
+.like {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.full-name {
+  font-weight: 400 !important;
+  font-size: 16px !important;
+}
+
+.full-name a {
+  color: #0969da;
+  text-decoration: none;
+}
+
+a:hover {
+  color: -webkit-link;
+  cursor: pointer;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag-item {
+  margin: 0 0.125em 0.333em 0;
+  display: inline-block;
+  padding: 0 7px;
+  font-weight: 500;
+  white-space: nowrap;
+  border-radius: 2em;
+  line-height: 22px;
+  color: #0969da;
+  background-color: #ddf4ff;
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+
+.sub-info {
+  display: flex;
+}
+
+.stargazers_count {
+  margin-right: 16px !important;
+}
+
+.stargazers_count a {
+  color: #57606a !important;
+}
+
+.sub-info-item {
+  margin-right: 16px !important;
+  color: #57606a !important;
+}

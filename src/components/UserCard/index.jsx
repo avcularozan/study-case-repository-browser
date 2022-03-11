@@ -1,6 +1,6 @@
 import { Box, Image, Stack, Text } from '@chakra-ui/react'
-import './index.css'
 import { useNavigate } from 'react-router-dom'
+import './index.css'
 
 const UserCard = () => {
   const navigate = useNavigate()

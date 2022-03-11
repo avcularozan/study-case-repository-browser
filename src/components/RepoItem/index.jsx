@@ -1,7 +1,7 @@
+import { FaRegStar, FaStar } from 'react-icons/fa'
 import './index.css'
-import { FaStar, FaRegStar } from 'react-icons/fa'
 
-const RepoItem = () => {
+const RepoItem = ({ repoInfo }) => {
   return (
     <div className="repo-list-item">
       <div className="like">
@@ -10,23 +10,22 @@ const RepoItem = () => {
       </div>
       <div>
         <div className="full-name">
-          <a href="#">facebook/react</a>
+          <a href={repoInfo?.html_url} target="_blank">
+            {repoInfo?.full_name}
+          </a>
         </div>
-        <p className="description">
-          A declarative, efficient, and flexible JavaScript library for building
-          user interfaces.
-        </p>
-        <div className="tags">
-          <div className="tag-item">declarative</div>
-          <div className="tag-item">frontend</div>
-          <div className="tag-item">javascript</div>
-          <div className="tag-item">library</div>
-          <div className="tag-item">react</div>
-        </div>
+        <p className="description">{repoInfo?.description}</p>
+        {repoInfo?.topics && (
+          <div className="tags">
+            {repoInfo?.topics.map((topic) => (
+              <div className="tag-item">{topic}</div>
+            ))}
+          </div>
+        )}
         <div className="sub-info">
-          <div className="sub-info-item">184k</div>
-          <div className="sub-info-item">JavaScript</div>
-          <div className="sub-info-item">MIT License</div>
+          <div className="sub-info-item">{repoInfo?.stargazers_count}</div>
+          <div className="sub-info-item">{repoInfo?.language}</div>
+          <div className="sub-info-item">{repoInfo?.license?.name}</div>
         </div>
       </div>
     </div>
