@@ -1,12 +1,18 @@
 import { FaRegStar, FaStar } from 'react-icons/fa'
 import './index.css'
 
-const RepoItem = ({ repoInfo }) => {
+const RepoItem = ({ repoInfo, changeStarred }) => {
   return (
     <div className="repo-list-item">
       <div className="like">
-        <FaStar color="#eac54f" />
-        <FaRegStar />
+        {repoInfo?.isStarred ? (
+          <FaStar
+            color="#eac54f"
+            onClick={() => changeStarred(repoInfo, false)}
+          />
+        ) : (
+          <FaRegStar onClick={() => changeStarred(repoInfo, true)} />
+        )}
       </div>
       <div>
         <div className="full-name">

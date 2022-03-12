@@ -6,6 +6,8 @@ import './index.css'
 
 const RepoArea = () => {
   const [search, setSearch] = useState('react')
+  const [repoList, setRepoList] = useState([])
+  const [starred, setStarred] = useState([])
 
   const [{ data: searchData, loading: searchLoading }, getSearchRequest] =
     useAxios(
@@ -20,6 +22,45 @@ const RepoArea = () => {
     if (search.length) getSearchRequest()
   }, [search])
 
+  useEffect(() => {
+    if (searchData?.items?.length) {
+      const preparedItems = searchData?.items.map((item) => ({
+        ...item,
+        isStarred: false
+      }))
+      setRepoList(preparedItems)
+      console.log('preparedItems', preparedItems)
+    }
+  }, [searchData])
+
+  const changeStarred = (item, isStarred) => {
+    console.log('isStarred', item, isStarred)
+    changedList(item, isStarred)
+    changedStar(item, isStarred)
+  }
+
+  const changedList = (item, status) => {
+    const list = repoList.map((repo) => {
+      if (repo.id === item.id) {
+        return {
+          ...repo,
+          isStarred: status
+        }
+      }
+      return repo
+    })
+    setRepoList(list)
+  }
+
+  const changedStar = (item, status) => {
+    let changedStar = starred
+    if (status) {
+      changedStar.push(item)
+    } else {
+      changedStar = starred.filter((star) => star.id !== item.id)
+    }
+    setStarred(changedStar)
+  }
   return (
     <div className="repo-area">
       <div className="search">
@@ -34,15 +75,15 @@ const RepoArea = () => {
       ) : searchData ? (
         <div className="search-result">
           <div className="available-result">
-            {searchData?.items?.length ? (
+            {repoList.length ? (
               <span>
-                Showing {searchData?.items?.length} available repository results
+                Showing {repoList.length} available repository results
               </span>
             ) : (
               <span>We couldn’t find any repositories matching '{search}'</span>
             )}
           </div>
-          <RepoList repos={searchData?.items} />
+          <RepoList repos={repoList} changeStarred={changeStarred} />
         </div>
       ) : null}
     </div>

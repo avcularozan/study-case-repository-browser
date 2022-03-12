@@ -1,10 +1,17 @@
 import RepoItem from '../RepoItem'
 import './index.css'
 
-const RepoList = ({ repos }) => {
+const RepoList = ({ repos, changeStarred }) => {
   return (
     <div className="repo-list">
-      {repos && repos.map((repo) => <RepoItem repoInfo={repo} key={repo.id} />)}
+      {repos &&
+        repos.map((repo) => (
+          <RepoItem
+            key={repo.id}
+            repoInfo={repo}
+            changeStarred={changeStarred}
+          />
+        ))}
     </div>
   )
 }
