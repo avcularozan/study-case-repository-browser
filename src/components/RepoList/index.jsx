@@ -5,12 +5,8 @@ const RepoList = ({ repos, changeStarred }) => {
   return (
     <div className="repo-list">
       {repos &&
-        repos.map((repo) => (
-          <RepoItem
-            key={repo.id}
-            repoInfo={repo}
-            changeStarred={changeStarred}
-          />
+        repos.map((repo, index) => (
+          <RepoItem key={index} repoInfo={repo} changeStarred={changeStarred} />
         ))}
     </div>
   )

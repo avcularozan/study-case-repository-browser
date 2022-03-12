@@ -24,7 +24,9 @@ const RepoItem = ({ repoInfo, changeStarred }) => {
         {repoInfo?.topics && (
           <div className="tags">
             {repoInfo?.topics.map((topic) => (
-              <div className="tag-item">{topic}</div>
+              <div className="tag-item" key={topic}>
+                {topic}
+              </div>
             ))}
           </div>
         )}
