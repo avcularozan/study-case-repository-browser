@@ -19,7 +19,7 @@ const RepoArea = () => {
     )
 
   useEffect(() => {
-    if (search.length) getSearchRequest()
+    if (search.length > 4) getSearchRequest()
   }, [search])
 
   useEffect(() => {
