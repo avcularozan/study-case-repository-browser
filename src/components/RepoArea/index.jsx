@@ -33,12 +33,10 @@ const RepoArea = () => {
         isStarred: false
       }))
       setRepoList(preparedItems)
-      console.log('preparedItems', preparedItems)
     }
   }, [searchData])
 
   const changeStarred = (item, isStarred) => {
-    console.log('isStarred', item, isStarred)
     changedList(item, isStarred)
     changedStar(item, isStarred)
   }
@@ -56,7 +54,9 @@ const RepoArea = () => {
   const changedStar = (item, status) => {
     let changedStar = Object.assign([], starred)
     if (status) {
-      changedStar.push(item)
+      const isAlreadyStarred = changedStar.some((star) => star.id === item.id)
+      if (!isAlreadyStarred)
+        changedStar.push(Object.assign({}, item, { isStarred: status }))
     } else {
       changedStar = starred.filter((star) => star.id !== item.id)
     }
@@ -68,6 +68,7 @@ const RepoArea = () => {
     )
     setStarred(changedStar)
   }
+
   return (
     <div className="repo-area">
       <div className="search">
@@ -78,7 +79,9 @@ const RepoArea = () => {
         />
       </div>
       {searchLoading ? (
-        <CircularProgress isIndeterminate />
+        <div style={{ textAlign: 'center', paddingTop: 30 }}>
+          <CircularProgress isIndeterminate />
+        </div>
       ) : searchData ? (
         <div className="search-result">
           <div className="available-result">

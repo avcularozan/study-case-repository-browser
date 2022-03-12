@@ -1,8 +1,8 @@
 import { Box, Image, Stack, Text } from '@chakra-ui/react'
-import { useNavigate } from 'react-router-dom'
-import './index.css'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { repoValue } from '../../_store/slices/repo'
+import './index.css'
 
 const UserCard = () => {
   const navigate = useNavigate()
