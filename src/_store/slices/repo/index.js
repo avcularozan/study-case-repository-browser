@@ -16,7 +16,7 @@ export const repoSlice = createSlice({
   }
 })
 
-export const repoValue = (state) => state.repoSlice
+export const repoValue = (state) => state.repo
 
 export const { setStoreRepo, resetStoreRepo } = repoSlice.actions
 

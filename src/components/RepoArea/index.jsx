@@ -1,13 +1,17 @@
 import { CircularProgress, Input } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useAxios } from '../../_common/_services'
+import { repoValue, setStoreRepo } from '../../_store/slices/repo'
 import RepoList from '../RepoList'
 import './index.css'
 
 const RepoArea = () => {
+  const repoStoreValue = useSelector(repoValue)
+  const dispatch = useDispatch()
   const [search, setSearch] = useState('react')
   const [repoList, setRepoList] = useState([])
-  const [starred, setStarred] = useState([])
+  const [starred, setStarred] = useState(repoStoreValue?.starredList || [])
 
   const [{ data: searchData, loading: searchLoading }, getSearchRequest] =
     useAxios(
@@ -42,10 +46,7 @@ const RepoArea = () => {
   const changedList = (item, status) => {
     const list = repoList.map((repo) => {
       if (repo.id === item.id) {
-        return {
-          ...repo,
-          isStarred: status
-        }
+        return Object.assign({}, repo, { isStarred: status })
       }
       return repo
     })
@@ -53,12 +54,18 @@ const RepoArea = () => {
   }
 
   const changedStar = (item, status) => {
-    let changedStar = starred
+    let changedStar = Object.assign([], starred)
     if (status) {
       changedStar.push(item)
     } else {
       changedStar = starred.filter((star) => star.id !== item.id)
     }
+    dispatch(
+      setStoreRepo({
+        ...repoValue,
+        starredList: changedStar
+      })
+    )
     setStarred(changedStar)
   }
   return (

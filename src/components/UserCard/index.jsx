@@ -1,9 +1,12 @@
 import { Box, Image, Stack, Text } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import './index.css'
+import { useSelector } from 'react-redux'
+import { repoValue } from '../../_store/slices/repo'
 
 const UserCard = () => {
   const navigate = useNavigate()
+  const repoStoreValue = useSelector(repoValue)
 
   return (
     <Box
@@ -30,7 +33,7 @@ const UserCard = () => {
             style={{ cursor: 'pointer' }}
             onClick={() => navigate('stars')}
           >
-            1 starred repository
+            {repoStoreValue?.starredList?.length} starred repository
           </Text>
         </Stack>
       </Box>

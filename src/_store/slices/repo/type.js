@@ -1,1 +1,3 @@
-export const initialRepoStoreData = {}
+export const initialRepoStoreData = {
+  starredList: []
+}
