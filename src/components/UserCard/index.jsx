@@ -17,6 +17,7 @@ const UserCard = () => {
       ml={10}
       border="1px"
       borderColor="#EDF2F7"
+      h={'100%'}
       className="user-card"
     >
       <Image
@@ -30,8 +31,8 @@ const UserCard = () => {
           </Text>
           <Text
             fontWeight="light"
-            style={{ cursor: 'pointer' }}
             onClick={() => navigate('stars')}
+            className='star-list-text'
           >
             {repoStoreValue?.starredList?.length} starred repository
           </Text>
